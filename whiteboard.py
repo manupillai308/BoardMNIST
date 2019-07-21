@@ -18,6 +18,7 @@ LABELS = {0:"zero",1:"one",2:"two",3:"three",4:"four",5:"five",6:"six",7:"seven"
 pygame.init()
 FONT = pygame.font.Font("freesansbold.ttf", 18)
 DISPLAYSURF = pygame.display.set_mode((WINDOWSIZEX, WINDOWSIZEY))
+WHITE_INT = DISPLAYSURF.map_rgb(WHITE)
 pygame.display.set_caption("WhiteBoard")
 #DISPLAYSURF.fill(BLACK)
 iswriting = False
@@ -54,7 +55,7 @@ while True:
 			if PREDICT:
 				image = cv2.resize(img_arr, (28, 28))
 				image = np.pad(image, (10, 10), 'constant', constant_values=0)
-				image = cv2.resize(image, (28, 28))
+				image = cv2.resize(image, (28, 28))/WHITE_INT
 				label = str(LABELS[np.argmax(MODEL.predict(image.reshape((1,28,28,1))))]).title()
 				textSurfaceObj = FONT.render(label, True, RED, WHITE)
 				textRectObj = textSurfaceObj.get_rect()
