@@ -1,6 +1,6 @@
 # BoardMNIST
 
-A simple [Pygame]() based MNIST digit recognition board. 
+A simple [Pygame](https://www.pygame.org/news) based MNIST digit recognition board. 
 
 ### Working
 ![image](images/image.png)
